@@ -9,13 +9,6 @@ import cartRouter from './routes/cartRoute.js'
 import orderRouter from './routes/orderRoute.js'
 import legalRouter from './routes/legalRoute.js' // 👈 NEW
 
-const cors = require('cors');
-
-app.use(cors({
-  origin: 'https://www.keproduct.com', // ✅ Allow only your frontend
-  credentials: true
-}));
-
 
 const app = express()
 const port = process.env.PORT || 4000
