@@ -31,6 +31,13 @@ const corsOptions = {
 // Middlewares
 app.use(cors(corsOptions))
 app.use(express.json())
+// Add this RIGHT AFTER your CORS middleware
+app.options('*', (req, res) => {
+  res.header('Access-Control-Allow-Origin', 'https://www.keproduct.com');
+  res.header('Access-Control-Allow-Methods', 'GET,POST,PUT,DELETE,OPTIONS');
+  res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  res.status(200).end();
+});
 
 // Handle preflight requests
 app.options('*', cors(corsOptions))
